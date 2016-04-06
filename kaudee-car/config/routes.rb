@@ -1,4 +1,4 @@
-Kaodee::Application.routes.draw do
+KaudeeCar::Application.routes.draw do
   get 'password_resets/new'
 
   namespace :api do
