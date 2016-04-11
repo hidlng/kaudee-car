@@ -1,8 +1,8 @@
 class MapController < ActionController::Base
   layout "map"
   def list
-    @Base = Room
-    @fields = 'rooms.*'
+    @Base = Car
+    @fields = 'cars.*'
     @models = @Base.select(@fields).where(delyn: "no")
 
     if params.has_key?(:user_id)
@@ -28,7 +28,7 @@ class MapController < ActionController::Base
     if params.has_key?(:city)
       @city = params[:city]
 
-      @finded = City.where("cityname like :arg or city_lao like :arg", {arg: "%#{@city}%"})
+      @finded = City.where("carsname like :arg or carsname_lao like :arg", {arg: "%#{@city}%"})
       @cities ||= []
       @finded.map { |c| @cities << c[:cityname] }
       @finded.map { |c| @cities << c[:city_lao] }
@@ -73,24 +73,24 @@ class MapController < ActionController::Base
       end
     end
 
-    @hash = Gmaps4rails.build_markers(@models) do |room, marker|
-      marker.lat room.latitude
-      marker.lng room.longitude
+    @hash = Gmaps4rails.build_markers(@models) do |car, marker|
+      marker.lat car.latitude
+      marker.lng car.longitude
       marker.picture ({
         "url" => "/mg_house.png",
         "width" => 15,
         "height" => 15 
       })
-      marker.infowindow "<a href='kaodee:/api/v1/room/%d'>%s</a>"%[room.id, room.roomname]
+      marker.infowindow "<a href='kaodee:/api/v1/car/%d'>%s</a>"%[car.id, car.carname]
     end
   end
 
   def show
-    @rooms = Room.find(params[:id])
-    @hash = Gmaps4rails.build_markers(@rooms) do |room, marker|
-      marker.lat room.latitude
-      marker.lng room.longitude
-      marker.infowindow room.roomname
+    @cars = Car.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@cars) do |car, marker|
+      marker.lat car.latitude
+      marker.lng car.longitude
+      marker.infowindow car.carname
     end
   end
 
