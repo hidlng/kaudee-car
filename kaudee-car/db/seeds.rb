@@ -56,7 +56,7 @@ districts = District.create([
 
 ])
 
-carbrand = CarBrand.create([
+carbrands = CarBrand.create([
   {brandname: "BENZ"},
   {brandname: "BMW"},
   {brandname: "CHANA_CHANGAN"},
