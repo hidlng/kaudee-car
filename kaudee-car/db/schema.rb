@@ -11,23 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416191943) do
+ActiveRecord::Schema.define(version: 20160411000250) do
 
-  create_table "categories", force: true do |t|
+  create_table "cars", force: :cascade do |t|
+    t.string   "carsname"
+    t.string   "carsname_lao"
+    t.string   "city"
+    t.string   "distinct"
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "address_lao"
+    t.string   "cellphone"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "delyn"
+    t.string   "detail_lao"
+    t.string   "detail_eng"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "newold"
+    t.integer  "price"
+    t.string   "price_unit"
+    t.string   "year"
+    t.string   "odometer"
+    t.string   "transmission"
+    t.string   "fueltype"
+    t.string   "drivetype"
+    t.string   "color"
+    t.string   "bodytype"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "image"
+  end
+
+  create_table "categories", force: :cascade do |t|
     t.string   "categorylao"
     t.string   "categoryname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "cities", force: true do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "cityname"
     t.string   "city_lao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "districts", force: true do |t|
+  create_table "districts", force: :cascade do |t|
     t.string   "districtname"
     t.string   "district_lao"
     t.integer  "city_id"
@@ -35,21 +66,21 @@ ActiveRecord::Schema.define(version: 20150416191943) do
     t.datetime "updated_at"
   end
 
-  create_table "favorites", force: true do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "room_id"
+    t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "images", force: true do |t|
-    t.integer  "room_id"
+  create_table "images", force: :cascade do |t|
+    t.integer  "car_id"
     t.string   "img"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "markets", force: true do |t|
+  create_table "markets", force: :cascade do |t|
     t.string   "marketname"
     t.string   "marketname_lao"
     t.integer  "user_id"
@@ -87,7 +118,7 @@ ActiveRecord::Schema.define(version: 20150416191943) do
     t.string   "enable"
   end
 
-  create_table "rooms", force: true do |t|
+  create_table "rooms", force: :cascade do |t|
     t.string   "roomname"
     t.string   "roomname_lao"
     t.integer  "user_id"
@@ -125,7 +156,7 @@ ActiveRecord::Schema.define(version: 20150416191943) do
     t.string   "image"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password"
     t.string   "name"

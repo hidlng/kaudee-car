@@ -7,37 +7,39 @@ module Api
 
       def index
         @selector = 'favorites.id, 
-          favorites.user_id, favorites.room_id,
-          roomname, roomname_lao,
-          city, district, address, address_lao,
-	  cellphone,
-          rooms.tel, 
-          rooms.email,
-          detail_lao, detail_eng, 
-          latitude, longitude, delyn,
-	  deposit, deposit_unit,
-	  rent, rent_unit,
-	  rstruct, rcount, bcount,
-	  bform, bfloor,
-	  parea, aarea, options,
-	  mexpenses, livedays, parkingyn, elevatoryn,
-	  poolyn
-	  '
-        @models = Room.select(@selector).joins(:favorite)
+          favorites.user_id, favorites.car_id,
+           carsname,
+           carsname_lao,
+           city,
+           distinct,
+           user_id,
+           address, address_lao,
+           cellphone,
+           latitude, longitude,
+           delyn, detail_lao,
+           detail_eng,
+           brand, model,
+           newold, price,
+           price_unit, year,
+           odometer, transmission, fueltype,
+           drivetype, color,
+           bodytype
+    	  '
+        @models = Car.select(@selector).joins(:favorite)
         if params.has_key?(:user_id)
           @user_id = params[:user_id]
           @models = @models.where("favorites.user_id = #{@user_id}")
         end
 
-        if params.has_key?(:room_ids)
-          @room_ids = params[:room_ids]
-          @models = @models.where("favorites.room_id in ( #{@room_ids} )")
+        if params.has_key?(:car_ids)
+          @car_ids = params[:car_ids]
+          @models = @models.where("favorites.car_id in ( #{@car_ids} )")
         else
           @models = paginate @models, per_page:10
         end
 
         def append_img(model)
-          model.image = img_urls(model.room_id)
+          model.image = img_urls(model.car_id)
           if model.image.nil?
             model.image = []
           end
@@ -50,8 +52,8 @@ module Api
       end
 
       def destroy
-        if params.has_key?(:user_id) and params.has_key?(:room_id)
-          @models = Favorite.where("user_id = #{params[:user_id]} and room_id = #{params[:room_id]}")
+        if params.has_key?(:user_id) and params.has_key?(:car_id)
+          @models = Favorite.where("user_id = #{params[:user_id]} and car_id = #{params[:car_id]}")
           @models.delete_all
             render json: {message: 'Resource Deleted'}
         else
@@ -64,8 +66,8 @@ module Api
       end
       
       private
-      def img_urls(roomid)
-        return Image.select("id, img").where("room_id = :arg", {arg:roomid})
+      def img_urls(carid)
+        return Image.select("id, img").where("car_id = :arg", {arg:carid})
       end
 
       def set_global
@@ -77,7 +79,7 @@ module Api
       def model_params
         params.permit(
           :user_id,
-          :room_id 
+          :car_id 
         )
       end
 

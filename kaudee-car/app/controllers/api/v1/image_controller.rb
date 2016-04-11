@@ -4,8 +4,8 @@ module Api
 
       def index
       	@images = @Base.all
-      	if params.has_key?(:room_id)
-      		@images.where("room_id = :arg", {arg: params[:room_id]})
+      	if params.has_key?(:car_id)
+      		@images.where("car_id = :arg", {arg: params[:car_id]})
       	end
       	render json: @images
       end
@@ -22,7 +22,7 @@ module Api
       end
 
       def model_params
-        params.permit(:room_id, :img)
+        params.permit(:car_id, :img)
       end
 
     end

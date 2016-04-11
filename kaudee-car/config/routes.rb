@@ -9,6 +9,7 @@ KaudeeCar::Application.routes.draw do
       resources :favorite
       resources :category
       resources :city
+      resources :car
       resources :district
       resources :image
       get 'meta' => 'meta#index'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   resources :market
   resources :room
   resources :user
+  resources :car
   resources :favorite
   resources :image
   resources :category
