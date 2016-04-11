@@ -163,6 +163,6 @@ rooms = Room.create([
 favorites = Favorite.create([
   {
     user_id: 1,
-    room_id: 1
+    car_id: 1
   }
 ])
