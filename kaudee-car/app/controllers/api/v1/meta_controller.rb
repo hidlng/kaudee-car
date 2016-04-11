@@ -4,8 +4,8 @@ module Api
       def index
         @ret = {
           'category'=>Category.select("id, categoryname, categorylao").all,
-          'brand'=>CarBrand.select("id, brandname").all,
-          'carmodel'=>CarModel.select("id, brand_id, modelname").all,
+          'brand'=>Carbrand.select("id, brandname").all,
+          'carmodel'=>Carmodel.select("id, brand_id, modelname").all,
           'city'=>City.select("id, cityname, city_lao").all,
           'district'=>District.select("id, districtname, district_lao, city_id").all
         }

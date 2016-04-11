@@ -56,7 +56,7 @@ districts = District.create([
 
 ])
 
-carbrands = CarBrand.create([
+carbrands = Carbrand.create([
   {brandname: "BENZ"},
   {brandname: "BMW"},
   {brandname: "CHANA_CHANGAN"},
@@ -73,7 +73,7 @@ carbrands = CarBrand.create([
   {brandname: "TOYOTA"}
 ])
 
-carmodels = CarModel.create([
+carmodels = Carmodel.create([
   {brand_id: 1, modelname:"A Class (A45 AMG DC/T)"},
   {brand_id: 1, modelname:"A Class (A200 AMG Sport DC/T)"},
   {brand_id: 1, modelname:"A Class (A250 Sport DC/T)"},
