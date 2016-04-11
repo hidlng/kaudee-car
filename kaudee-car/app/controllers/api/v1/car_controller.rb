@@ -3,7 +3,7 @@ require 'json'
 
 module Api
   module V1
-    class RoomController < CommonAPIController
+    class CarController < CommonAPIController
       before_filter :restrict_access, except: [:index, :show]
 
       def index
