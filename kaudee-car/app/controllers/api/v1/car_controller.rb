@@ -13,30 +13,26 @@ module Api
           @models = @models.where(user_id: params[:user_id])
         end
 
-  if params.has_key?(:deposita) and params.has_key?(:depositb)
-    @min = params[:deposita].scan(/\d+/).first || 0
-    @max = params[:depositb].scan(/\d+/).first || 0
-    @models = @models.where("deposit >= ? and deposit <= ?", @min, @max)
-  end
-
-  if params.has_key?(:renta) and params.has_key?(:rentb)
-    @min = params[:renta].scan(/\d+/).first
-    @max = params[:rentb].scan(/\d+/).first
-    @models = @models.where("rent >= ? and rent <= ?", @min, @max)
-  end
 
 
-  if params.has_key?(:deposit_base) and params.has_key?(:deposit_range)
-    @min = params[:deposit_base].to_i - params[:deposit_range].to_i
-    @max = params[:deposit_base].to_i + params[:deposit_range].to_i
-    @models = @models.where("deposit >= ? and deposit <= ?", @min, @max)
+  if params.has_key?(:pricea) and params.has_key?(:priceb)
+    @min = params[:pricea].scan(/\d+/).first
+    @max = params[:priceb].scan(/\d+/).first
+    @models = @models.where("price >= ? and price <= ?", @min, @max)
   end
 
-  if params.has_key?(:rent_base) and params.has_key?(:rent_range)
-    @min = params[:rent_base].to_i - params[:rent_range].to_i
-    @max = params[:rent_base].to_i + params[:rent_range].to_i
-    @models = @models.where("rent >= ? and rent <= ?", @min, @max)
+  if params.has_key?(:brand)
+    @models.where(brand: params[:brand])
   end
+  
+    if params.has_key?(:model)
+    @models.where(model: params[:model])
+  end
+  
+    if params.has_key?(:newold)
+    @models.where(newold: params[:newold])
+  end
+
 
   if params.has_key?(:rstruct)
     @models.where(rsturct: params[:rstruct])
