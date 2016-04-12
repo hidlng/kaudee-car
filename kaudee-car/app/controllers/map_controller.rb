@@ -87,7 +87,7 @@ class MapController < ActionController::Base
         "width" => 15,
         "height" => 15 
       })
-      marker.infowindow "<a href='kaudee:/api/v1/car/%d'>%s</a>"%[car.id, car.carname]
+      marker.infowindow "<a href='kaudee:/api/v1/car/%d'>%s</a>"%[car.id, car.model]
     end
   end
 
