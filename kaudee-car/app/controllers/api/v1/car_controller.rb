@@ -81,7 +81,7 @@ module Api
       end
 
       def show
-        @fields = ':cars.*'
+        @fields = 'cars.*'
         @model = @Base.select(@fields).find(params[:id])
         @model = append_img(@model)
         render json: @model
