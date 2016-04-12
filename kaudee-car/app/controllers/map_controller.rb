@@ -31,18 +31,18 @@ class MapController < ActionController::Base
       @models.where(rsturct: params[:rstruct])
     end
 
-    if params.has_key?(:city)
-      @city = params[:city]
+        if params.has_key?(:city)
+          @city = params[:city]
 
-      @finded = City.where("carsname like :arg or carsname_lao like :arg", {arg: "%#{@city}%"})
-      @cities ||= []
-      @finded.map { |c| @cities << c[:cityname] }
-      @finded.map { |c| @cities << c[:city_lao] }
-      @str_city = @cities.map { |c| "'#{c}'" } .join(",")
-      @info = @str_city
+          @finded = City.where("cityname like :arg or city_lao like :arg", {arg: "%#{@city}%"})
+          @cities ||= []
+          @finded.map { |c| @cities << c[:cityname] }
+          @finded.map { |c| @cities << c[:city_lao] }
+          @str_city = @cities.map { |c| "'#{c}'" } .join(",")
+          @info = @str_city
 
-      @models = @models.where("city like :arg or city in (#{@str_city})", {arg: "%#{@city}%"})
-    end
+          @models = @models.where("city like :arg or city in (#{@str_city})", {arg: "%#{@city}%"})
+        end
 
     if params.has_key?(:district)
       @district = params[:district]
