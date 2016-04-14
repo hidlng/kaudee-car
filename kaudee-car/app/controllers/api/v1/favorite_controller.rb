@@ -11,7 +11,6 @@ module Api
            carsname,
            carsname_lao,
            city,
-           user_id,
            address, address_lao,
            cellphone,
            latitude, longitude,
