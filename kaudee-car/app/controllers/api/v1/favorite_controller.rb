@@ -11,7 +11,6 @@ module Api
            carsname,
            carsname_lao,
            city,
-           favorites.distinct,
            user_id,
            address, address_lao,
            cellphone,
