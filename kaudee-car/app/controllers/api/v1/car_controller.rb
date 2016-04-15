@@ -13,16 +13,24 @@ module Api
           @models = @models.where(user_id: params[:user_id])
         end
 
-        if params.has_key?(:odoa) and params.has_key?(:odob)
+        if params.has_key?(:odoa) 
           @min = params[:odoa].scan(/\d+/).first
-          @max = params[:odob].scan(/\d+/).first
-          @models = @models.where("odometer >= ? and odometer <= ?", @min, @max)
+          @models = @models.where("odometer >= ?", @min)
         end
+        
+        if params.has_key?(:odob)
+          @max = params[:odob].scan(/\d+/).first
+          @models = @models.where("odometer <= ?", @max)
+        end        
 
-        if params.has_key?(:pricea) and params.has_key?(:priceb)
+        if params.has_key?(:pricea)
           @min = params[:pricea].scan(/\d+/).first
+          @models = @models.where("price >= ?", @min)
+        end
+        
+        if params.has_key?(:priceb)
           @max = params[:priceb].scan(/\d+/).first
-          @models = @models.where("price >= ? and price <= ?", @min, @max)
+          @models = @models.where("price <= ?", @max)
         end
 
         if params.has_key?(:brand)
