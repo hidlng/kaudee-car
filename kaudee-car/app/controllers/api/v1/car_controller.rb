@@ -15,28 +15,31 @@ module Api
 
 
 
-  if params.has_key?(:pricea) and params.has_key?(:priceb)
-    @min = params[:pricea].scan(/\d+/).first
-    @max = params[:priceb].scan(/\d+/).first
-    @models = @models.where("price >= ? and price <= ?", @min, @max)
-  end
+        if params.has_key?(:pricea) and params.has_key?(:priceb)
+          @min = params[:pricea].scan(/\d+/).first
+          @max = params[:priceb].scan(/\d+/).first
+          @models = @models.where("price >= ? and price <= ?", @min, @max)
+        end
 
-  if params.has_key?(:brand)
-    @models.where(brand: params[:brand])
-  end
-  
-    if params.has_key?(:model)
-    @models.where(model: params[:model])
-  end
-  
-    if params.has_key?(:newold)
-    @models.where(newold: params[:newold])
-  end
+          if params.has_key?(:brand)
+            @keyword = params[:brand]
+            @models = @models.where(":brand = :arg", {arg:  @brand})
+          end
 
 
-  if params.has_key?(:rstruct)
-    @models.where(rsturct: params[:rstruct])
-  end
+        if params.has_key?(:brand)
+          @models.where(brand: params[:brand])
+        end
+        
+          if params.has_key?(:model)
+          @models.where(model: params[:model])
+        end
+        
+          if params.has_key?(:newold)
+          @models.where(newold: params[:newold])
+        end
+
+
 
         if params.has_key?(:city)
           @city = params[:city]
