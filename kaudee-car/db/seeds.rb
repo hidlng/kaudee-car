@@ -121,7 +121,6 @@ carmodels = Carmodel.create([
   {brand_id: 1, modelname:"AGT (GT S DC/T)"},
   
   {brand_id: 2, modelname:"X6(xDrive30d Essential A/T)"},
-  {brand_id: 2, modelname:"X6(xDrive30d Essential A/T)"},
   {brand_id: 2, modelname:"1 Series(M135i Hatch A/T)"},
   {brand_id: 2, modelname:"1 Series(116i Essential A/T)"},
   {brand_id: 2, modelname:"1 Series(118d Sport Essential A/T)"},
