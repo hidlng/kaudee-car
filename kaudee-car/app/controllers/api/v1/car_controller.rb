@@ -13,7 +13,11 @@ module Api
           @models = @models.where(user_id: params[:user_id])
         end
 
-
+        if params.has_key?(:odoa) and params.has_key?(:odob)
+          @min = params[:odoa].scan(/\d+/).first
+          @max = params[:odob].scan(/\d+/).first
+          @models = @models.where("odometer >= ? and odometer <= ?", @min, @max)
+        end
 
         if params.has_key?(:pricea) and params.has_key?(:priceb)
           @min = params[:pricea].scan(/\d+/).first
@@ -25,16 +29,16 @@ module Api
           @keyword = params[:brand]
           @models = @models.where("brand = :arg", {arg: @keyword})
         end
-
-        if params.has_key?(:model)
-          @models.where(model: params[:model])
+        
+         if params.has_key?(:model)
+          @keyword = params[:model]
+          @models = @models.where("model = :arg", {arg: @keyword})
         end
         
-          if params.has_key?(:newold)
-          @models.where(newold: params[:newold])
+         if params.has_key?(:newold)
+          @keyword = params[:newold]
+          @models = @models.where("newold = :arg", {arg: @keyword})
         end
-
-
 
         if params.has_key?(:city)
           @city = params[:city]
