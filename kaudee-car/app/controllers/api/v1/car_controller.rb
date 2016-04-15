@@ -21,17 +21,12 @@ module Api
           @models = @models.where("price >= ? and price <= ?", @min, @max)
         end
 
-          if params.has_key?(:brand)
-            @keyword = params[:brand]
-            @models = @models.where(":brand = :arg", {arg:  @brand})
-          end
-
-
         if params.has_key?(:brand)
-          @models.where(brand: params[:brand])
+          @keyword = params[:brand]
+          @models = @models.where(":brand = :arg", {arg: @brand})
         end
-        
-          if params.has_key?(:model)
+
+        if params.has_key?(:model)
           @models.where(model: params[:model])
         end
         
