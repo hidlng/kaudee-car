@@ -23,7 +23,7 @@ module Api
 
         if params.has_key?(:brand)
           @keyword = params[:brand]
-          @models = @models.where(":brand = :arg", {arg: @keyword})
+          @models = @models.where("brand = :arg", {arg: @keyword})
         end
 
         if params.has_key?(:model)
