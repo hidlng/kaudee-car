@@ -41,4 +41,7 @@ gem 'omniauth-facebook'
 gem 'will_paginate'
 
 gem 'api-pagination'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 gem 'utf8-cleaner'
