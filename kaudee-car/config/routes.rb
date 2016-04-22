@@ -47,5 +47,7 @@ Rails.application.routes.draw do
   resources :category
   resources :district
   resources :city
+  resources :brand
+  resources :model
   resources :password_resets
 end
