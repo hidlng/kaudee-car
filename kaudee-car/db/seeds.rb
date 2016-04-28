@@ -57,20 +57,22 @@ districts = District.create([
 ])
 
 carbrands = Carbrand.create([
-  {brandname: "BENZ"},
-  {brandname: "BMW"},
-  {brandname: "CHANA_CHANGAN"},
-  {brandname: "CHERRY_CHERY"},
-  {brandname: "GREAT WALL"},
-  {brandname: "HONDA"},
-  {brandname: "HYUNDAI"},
-  {brandname: "KIA"},
-  {brandname: "LIFAN"},
-  {brandname: "MAZDA"},
-  {brandname: "MG"},
-  {brandname: "MITSUBISHI"},
-  {brandname: "PROTON"},
-  {brandname: "TOYOTA"}
+  {brandname: "BENZ", brand_option:1},
+  {brandname: "BMW", brand_option:1},
+  {brandname: "CHANA_CHANGAN", brand_option:1},
+  {brandname: "CHERRY_CHERY", brand_option:1},
+  {brandname: "GREAT WALL", brand_option:1},
+  {brandname: "HONDA", brand_option:1},
+  {brandname: "HYUNDAI", brand_option:1},
+  {brandname: "KIA", brand_option:1},
+  {brandname: "LIFAN", brand_option:1},
+  {brandname: "MAZDA", brand_option:1},
+  {brandname: "MG", brand_option:1},
+  {brandname: "MITSUBISHI", brand_option:1},
+  {brandname: "PROTON", brand_option:1},
+  {brandname: "TOYOTA", brand_option:1},
+  {brandname: "MOTOR CYCLE", brand_option:2},
+  {brandname: "OTHER", brand_option:2}
 ])
 
 carmodels = Carmodel.create([

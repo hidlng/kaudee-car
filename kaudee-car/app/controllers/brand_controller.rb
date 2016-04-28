@@ -8,7 +8,8 @@ class BrandController < CommonController
 
   def model_params
     params.permit(
-      :brandname
+      :brandname,
+      :brand_option
     )
   end
 end
