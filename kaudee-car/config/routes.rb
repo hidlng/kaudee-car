@@ -12,6 +12,7 @@ KaudeeCar::Application.routes.draw do
       resources :car
       resources :district
       resources :image
+      resources :model
       get 'meta' => 'meta#index'
       post 'login' => 'login#index'
     end
