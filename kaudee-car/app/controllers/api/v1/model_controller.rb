@@ -3,7 +3,7 @@ require 'json'
 
 module Api
   module V1
-    class CarmodelController < CommonAPIController
+    class ModelController < CommonAPIController
 
       def create
         @model = @Base.new(model_params)
