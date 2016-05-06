@@ -129,10 +129,10 @@ module Api
 
       private
       def img_urls(roomid)
-        return Image.select("id, img").where("room_id = :arg", {arg:roomid})
+        return Image.select("id, img").where("data_id = :arg and gubun = 2", {arg:roomid})
       end
       def img_delete(roomid)
-        Image.where("room_id = :arg", {arg:roomid}).destroy_all
+        Image.where("data_id = :arg and gubun = 2", {arg:roomid}).destroy_all
       end
 
       def set_global
@@ -143,8 +143,6 @@ module Api
 
       def model_params
         params.permit(
-          :roomname,
-          :roomname_lao,
           :address,
           :address_lao,
           :cellphone,
@@ -156,23 +154,17 @@ module Api
           :detail_lao,
           :detail_eng,
           :user_id,
-          :deposit,
-          :deposit_unit,
-          :rent,
-          :rent_unit,
-          :rstruct,
-          :rcount,
-          :bcount,
-          :bform,
-          :bfloor,
-          :parea,
-          :aarea,
-          :options,
-          :mexpenses,
-          :livedays,
-          :parkingyn,
-          :elevatoryn,
-          :poolyn,
+          :status,
+          :product,
+          :price,
+          :price_unit,
+          :land_size,
+          :rooms,
+          :toilets,
+          :built_year,
+          :amenities,
+          :parking,
+          :rent_option,
           :city,
           :district
         )

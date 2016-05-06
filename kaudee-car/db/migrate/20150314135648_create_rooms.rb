@@ -15,23 +15,17 @@ class CreateRooms < ActiveRecord::Migration
       t.string :detail_lao
       t.string :detail_eng
 
-      t.integer :deposit
-      t.string :deposit_unit
-      t.integer :rent
-      t.string :rent_unit
-      t.string :rstruct
-      t.integer :rcount
-      t.integer :bcount
-      t.string :bform
-      t.integer :bfloor
-      t.string :parea
-      t.string :aarea
-      t.string :options
-      t.integer :mexpenses
-      t.integer :livedays
-      t.string :parkingyn
-      t.string :elevatoryn
-      t.string :poolyn
+      t.string :status
+      t.string :product
+      t.integer :price
+      t.string :price_unit
+      t.string :land_size
+      t.string :rooms
+      t.string :toilets
+      t.string :built_year
+      t.string :amenities
+      t.string :parking
+      t.string :rent_option
 
       t.string :city
       t.string :district

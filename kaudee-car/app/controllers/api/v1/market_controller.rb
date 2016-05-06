@@ -151,10 +151,10 @@ module Api
 
       private
       def img_urls(marketid)
-        return Image.select("id, img").where("market_id = :arg", {arg:marketid})
+        return Image.select("id, img").where("data_id = :arg and gubun = 1", {arg:marketid})
       end
       def img_delete(marketid)
-        Image.where("market_id = :arg", {arg:marketid}).destroy_all
+        Image.where("data_id = :arg and gubun = 1", {arg:marketid}).destroy_all
       end
 
       def set_global

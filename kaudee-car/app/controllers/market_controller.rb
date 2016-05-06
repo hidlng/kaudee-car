@@ -47,7 +47,7 @@ class MarketController < CommonController
     @Base = Market
   end
   def img_urls(marketid)
-    return Image.select("id, img").where("market_id = :arg", {arg:marketid})
+    return Image.select("id, img").where("data_id = :arg and gubun = 1", {arg:marketid})
   end
 
   def model_params

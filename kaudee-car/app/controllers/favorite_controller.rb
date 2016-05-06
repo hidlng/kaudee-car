@@ -9,7 +9,8 @@ class FavoriteController < CommonController
   def model_params
     params.permit(
       :user_id, 
-      :market_id 
+      :data_id,
+      :gubun 
     )
   end
 end

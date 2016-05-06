@@ -135,10 +135,10 @@ module Api
 
       private
       def img_urls(carid)
-        return Image.select("id, img").where("car_id = :arg", {arg:carid})
+        return Image.select("id, img").where("data_id = :arg and gubun = 3", {arg:carid})
       end
       def img_delete(carid)
-        Image.where("car_id = :arg", {arg:carid}).destroy_all
+        Image.where("data_id = :arg and gubun = 3", {arg:carid}).destroy_all
       end
 
       def set_global

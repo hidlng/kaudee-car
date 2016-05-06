@@ -90,7 +90,7 @@ GEM
     mime-types (1.25.1)
     mini_magick (4.5.1)
     minitest (5.8.4)
-    multi_json (1.11.3)
+    multi_json (1.12.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mustermann19 (0.4.3)

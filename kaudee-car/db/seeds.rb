@@ -1021,43 +1021,13 @@ markets = Market.create([
   }
 ])
 
-rooms = Room.create([
-  {
-    roomname: 'sample room',
-    roomname_lao: 'sample room ບັນຊ',
-    user_id: 1,
-    address: 'test address',
-    address_lao: 'test address lao',
-    cellphone: '333-4444-4444',
-    tel: '123-452-1134',
-    email: '1@1.2',
-    latitude: '21.2312321312',
-    longitude: '32.42132132',
-    delyn: 'no',
-    detail_lao: 'detail lao test',
-    detail_eng: 'detail eng test',
-    deposit: 2000,
-    rent: 101,
-    rstruct: 'one room',
-    rcount: 1,
-    bcount: 1,
-    bform: 'apartment',
-    bfloor: 3,
-    parea: 11,
-    aarea: 12,
-    options: 'sink, air con',
-    mexpenses: 100,
-    livedays: 90,
-    parkingyn: 'yes',
-    elevatoryn: 'no',
-    poolyn: 'no'
-  }
-])
+
 
 
 favorites = Favorite.create([
   {
     user_id: 1,
-    car_id: 1
+    data_id: 1,
+    gubun:1
   }
 ])

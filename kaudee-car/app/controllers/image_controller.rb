@@ -15,8 +15,9 @@ class ImageController < CommonController
 
   def model_params
     params.permit(
-      :car_id,
-      :img
+      :data_id,
+      :img,
+      :gubun
     )
   end
 end
