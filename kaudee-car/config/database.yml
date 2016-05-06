@@ -10,7 +10,7 @@
 #  timeout: 5000
 
 default : &default
-  adapter: mysql 
+  adapter: mysql2 
   encoding: utf8 
   username: root 
   password: tpqmfld11! 
