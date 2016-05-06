@@ -16,6 +16,7 @@ default : &default
   password: tpqmfld11! 
   host: kaudee.cnqsmz0y4789.us-west-2.rds.amazonaws.com
   port: 3306
+  socket: /tmp/mysql.sock
 
 # development:
 #  <<: *default
