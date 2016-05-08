@@ -1,4 +1,4 @@
-class WelcomeController < DefaultController
+class WelcomeController < ApplicationController
   #layout "application", except: [:policy, :password]
 
   def index
