@@ -11,180 +11,188 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411114256) do
+ActiveRecord::Schema.define(version: 20160503050245) do
 
-  create_table "carbrands", force: true do |t|
-    t.string   "brandname"
-    t.integer  "brand_option"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "carbrands", force: :cascade do |t|
+    t.string   "brandname",    limit: 255
+    t.integer  "brand_option", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  create_table "carmodels", force: true do |t|
-    t.string   "modelname"
-    t.integer  "brand_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "carmodels", force: :cascade do |t|
+    t.string   "modelname",  limit: 255
+    t.integer  "brand_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "cars", force: true do |t|
-    t.string   "carsname"
-    t.string   "carsname_lao"
-    t.string   "city"
-    t.string   "distinct"
-    t.integer  "user_id"
-    t.string   "address"
-    t.string   "address_lao"
-    t.string   "cellphone"
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "delyn"
-    t.string   "detail_lao"
-    t.string   "detail_eng"
-    t.string   "brand"
-    t.string   "model"
-    t.string   "newold"
-    t.integer  "price"
-    t.string   "price_unit"
-    t.string   "year"
-    t.string   "odometer"
-    t.string   "transmission"
-    t.string   "fueltype"
-    t.string   "drivetype"
-    t.string   "color"
-    t.string   "bodytype"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "image"
+  create_table "cars", force: :cascade do |t|
+    t.string   "carsname",     limit: 255
+    t.string   "carsname_lao", limit: 255
+    t.string   "city",         limit: 255
+    t.string   "distinct",     limit: 255
+    t.integer  "user_id",      limit: 4
+    t.string   "address",      limit: 255
+    t.string   "address_lao",  limit: 255
+    t.string   "cellphone",    limit: 255
+    t.string   "latitude",     limit: 255
+    t.string   "longitude",    limit: 255
+    t.string   "delyn",        limit: 255
+    t.string   "detail_lao",   limit: 255
+    t.string   "detail_eng",   limit: 255
+    t.string   "brand",        limit: 255
+    t.string   "model",        limit: 255
+    t.string   "newold",       limit: 255
+    t.integer  "price",        limit: 4
+    t.string   "price_unit",   limit: 255
+    t.string   "year",         limit: 255
+    t.string   "odometer",     limit: 255
+    t.string   "transmission", limit: 255
+    t.string   "fueltype",     limit: 255
+    t.string   "drivetype",    limit: 255
+    t.string   "color",        limit: 255
+    t.string   "bodytype",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "image",        limit: 255
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "categorylao"
-    t.string   "categoryname"
+  create_table "categories", force: :cascade do |t|
+    t.string   "categorylao",  limit: 255
+    t.string   "categoryname", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "cities", force: true do |t|
-    t.string   "cityname"
-    t.string   "city_lao"
+  create_table "cities", force: :cascade do |t|
+    t.string   "cityname",   limit: 255
+    t.string   "city_lao",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "districts", force: true do |t|
-    t.string   "districtname"
-    t.string   "district_lao"
-    t.integer  "city_id"
+  create_table "districts", force: :cascade do |t|
+    t.string   "districtname", limit: 255
+    t.string   "district_lao", limit: 255
+    t.integer  "city_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "favorites", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "data_id"
-    t.integer  "gubun"
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "data_id",    limit: 4
+    t.integer  "gubun",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "images", force: true do |t|
-    t.integer  "data_id"
-    t.string   "img"
-    t.integer  "gubun"
+  create_table "images", force: :cascade do |t|
+    t.integer  "data_id",    limit: 4
+    t.string   "img",        limit: 255
+    t.integer  "gubun",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "markets", force: true do |t|
-    t.string   "marketname"
-    t.string   "marketname_lao"
-    t.integer  "user_id"
-    t.string   "category1"
-    t.string   "category2"
-    t.string   "city"
-    t.string   "district"
-    t.string   "address"
-    t.string   "address_lao"
-    t.string   "open1"
-    t.string   "close1"
-    t.string   "desc1"
-    t.string   "open2"
-    t.string   "close2"
-    t.string   "desc2"
-    t.string   "open3"
-    t.string   "close3"
-    t.string   "desc3"
-    t.string   "fax"
-    t.string   "cellphone"
-    t.string   "tel"
-    t.string   "email"
-    t.string   "homepage"
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "delyn"
-    t.string   "detail_lao"
-    t.string   "detail_eng"
-    t.string   "keyword"
-    t.string   "keyword_lao"
+  create_table "markets", force: :cascade do |t|
+    t.string   "marketname",     limit: 255
+    t.string   "marketname_lao", limit: 255
+    t.integer  "user_id",        limit: 4
+    t.string   "category1",      limit: 255
+    t.string   "category2",      limit: 255
+    t.string   "city",           limit: 255
+    t.string   "district",       limit: 255
+    t.string   "address",        limit: 255
+    t.string   "address_lao",    limit: 255
+    t.string   "open1",          limit: 255
+    t.string   "close1",         limit: 255
+    t.string   "desc1",          limit: 255
+    t.string   "open2",          limit: 255
+    t.string   "close2",         limit: 255
+    t.string   "desc2",          limit: 255
+    t.string   "open3",          limit: 255
+    t.string   "close3",         limit: 255
+    t.string   "desc3",          limit: 255
+    t.string   "fax",            limit: 255
+    t.string   "cellphone",      limit: 255
+    t.string   "tel",            limit: 255
+    t.string   "email",          limit: 255
+    t.string   "homepage",       limit: 255
+    t.string   "latitude",       limit: 255
+    t.string   "longitude",      limit: 255
+    t.string   "delyn",          limit: 255
+    t.string   "detail_lao",     limit: 255
+    t.string   "detail_eng",     limit: 255
+    t.string   "keyword",        limit: 255
+    t.string   "keyword_lao",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
-    t.string   "tel2"
-    t.string   "enable"
+    t.string   "image",          limit: 255
+    t.string   "tel2",           limit: 255
+    t.string   "enable",         limit: 255
   end
 
-  create_table "rooms", force: true do |t|
-    t.string   "roomname"
-    t.string   "roomname_lao"
-    t.integer  "user_id"
-    t.string   "address"
-    t.string   "address_lao"
-    t.string   "cellphone"
-    t.string   "tel"
-    t.string   "email"
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "delyn"
-    t.string   "detail_lao"
-    t.string   "detail_eng"
-    t.string   "status"
-    t.string   "product"
-    t.integer  "price"
-    t.string   "price_unit"
-    t.string   "land_size"
-    t.string   "rooms"
-    t.string   "toilets"
-    t.string   "built_year"
-    t.string   "amenities"
-    t.string   "parking"
-    t.string   "rent_option"
-    t.string   "city"
-    t.string   "district"
+  create_table "rooms", force: :cascade do |t|
+    t.string   "roomname",     limit: 255
+    t.string   "roomname_lao", limit: 255
+    t.integer  "user_id",      limit: 4
+    t.string   "address",      limit: 255
+    t.string   "address_lao",  limit: 255
+    t.string   "cellphone",    limit: 255
+    t.string   "tel",          limit: 255
+    t.string   "email",        limit: 255
+    t.string   "latitude",     limit: 255
+    t.string   "longitude",    limit: 255
+    t.string   "delyn",        limit: 255
+    t.string   "detail_lao",   limit: 255
+    t.string   "detail_eng",   limit: 255
+    t.string   "status",       limit: 255
+    t.string   "product",      limit: 255
+    t.integer  "price",        limit: 4
+    t.string   "price_unit",   limit: 255
+    t.string   "land_size",    limit: 255
+    t.string   "rooms",        limit: 255
+    t.string   "toilets",      limit: 255
+    t.string   "built_year",   limit: 255
+    t.string   "amenities",    limit: 255
+    t.string   "parking",      limit: 255
+    t.string   "rent_option",  limit: 255
+    t.string   "city",         limit: 255
+    t.string   "district",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.string   "name"
-    t.string   "sex"
-    t.string   "tel"
-    t.string   "usertype"
-    t.string   "birthdate"
-    t.string   "marketname"
-    t.string   "cellphone"
-    t.string   "marketphone"
-    t.string   "marketemail"
-    t.string   "address"
-    t.string   "access_token"
+  create_table "tests", force: :cascade do |t|
+    t.integer  "num",        limit: 4
+    t.string   "name",       limit: 255
+    t.string   "city",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255
+    t.string   "password",               limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "sex",                    limit: 255
+    t.string   "tel",                    limit: 255
+    t.string   "usertype",               limit: 255
+    t.string   "birthdate",              limit: 255
+    t.string   "marketname",             limit: 255
+    t.string   "cellphone",              limit: 255
+    t.string   "marketphone",            limit: 255
+    t.string   "marketemail",            limit: 255
+    t.string   "address",                limit: 255
+    t.string   "access_token",           limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_reset_token"
+    t.string   "password_reset_token",   limit: 255
     t.datetime "password_reset_sent_at"
-    t.string   "empno"
-    t.string   "recomno"
+    t.string   "empno",                  limit: 255
+    t.string   "recomno",                limit: 255
   end
 
 end
